@@ -5,7 +5,7 @@ import { UserInput } from "@axiom-crypto/client";
 import { useEffect } from "react";
 import LoadingAnimation from "../ui/LoadingAnimation";
 import SubmitQuery from "./SubmitQuery";
-import { WebappSettings } from "@/lib/webappSettings";
+import { WebappSettings } from "@/lib/settings-samechain/webappSettings";
 
 export default function BuildQuery({
   inputs,
@@ -46,7 +46,7 @@ export default function BuildQuery({
       </div>
     );
   }
-  console.log("builtQuery:", builtQuery);
+  console.log("built query: ", builtQuery);
 
   return <SubmitQuery />;
 }

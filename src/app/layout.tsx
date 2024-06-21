@@ -1,8 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import Providers from './providers'
+import Providers from './providers-samechain'
 import MainLayout from '@/components/layout/MainLayout';
-import AxiomProvider from './axiomProvider';
 
 export const metadata: Metadata = {
   title: 'Axiom Next.js Quickstart',
@@ -20,9 +19,7 @@ export default function RootLayout({
         <Providers>
           <main className="flex flex-col w-screen min-h-screen justify-start items-center">
             <MainLayout>
-              <AxiomProvider>
-                {children}
-              </AxiomProvider>
+              {children}
             </MainLayout>
           </main>
         </Providers>

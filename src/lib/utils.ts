@@ -2,18 +2,18 @@ import { Chain } from 'viem'
 import { base, baseSepolia, mainnet, sepolia } from 'viem/chains'
 
 // Unfortunately, dynamic environment variables are not supported in Next.js
-// so we can't just do process.env[`NEXT_PUBLIC_PROVIDER_URI_${CHAIN_ID}`].
+// so we can't just do process.env[`NEXT_PUBLIC_RPC_URL_${CHAIN_ID}`].
 // We'll need to do something like this to get the provider URI.
-export const getProviderClientSide = (chainId: string): string => {
+export const getRpcUrlClientSide = (chainId: string): string => {
   switch (chainId) {
     case "1":
-      return process.env.NEXT_PUBLIC_PROVIDER_URI_1 as string;
+      return process.env.NEXT_PUBLIC_RPC_URL_1 as string;
     case "11155111":
-      return process.env.NEXT_PUBLIC_PROVIDER_URI_11155111 as string;
+      return process.env.NEXT_PUBLIC_RPC_URL_11155111 as string;
     case "8453":
-      return process.env.NEXT_PUBLIC_PROVIDER_URI_8453 as string;
+      return process.env.NEXT_PUBLIC_RPC_URL_8453 as string;
     case "84532":
-      return process.env.NEXT_PUBLIC_PROVIDER_URI_84532 as string;
+      return process.env.NEXT_PUBLIC_RPC_URL_84532 as string;
     default:
       throw new Error(`Unsupported chainId: ${chainId}`)
   }

@@ -2,8 +2,10 @@
 
 import { WagmiProvider } from 'wagmi';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { wagmiConfig } from '@/lib/wagmiConfig';
+import { wagmiConfig } from '@/lib/settings-samechain/wagmiConfig';
 import { useEffect, useState } from "react";
+import { AxiomCircuitProvider } from "@axiom-crypto/react";
+import { WebappSettings } from "@/lib/settings-samechain/webappSettings";
 
 const queryClient = new QueryClient()
 
@@ -14,7 +16,13 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
-        {mounted && children}
+        <AxiomCircuitProvider
+          compiledCircuit={WebappSettings.compiledCircuit}
+          rpcUrl={WebappSettings.rpcUrl}
+          chainId={WebappSettings.chainId}
+        >
+          {mounted && children}
+        </AxiomCircuitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   )

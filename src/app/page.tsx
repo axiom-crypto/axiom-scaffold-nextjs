@@ -2,7 +2,7 @@
 
 import Title from '@/components/ui/Title'
 import { forwardSearchParams } from '@/lib/utils'
-import AdvanceStepButton from '@/components/ui/AdvanceStepButton';
+import AdvanceStepButton from '@/components/buttons-samechain/AdvanceStepButton';
 import CodeBox from '@/components/ui/CodeBox';
 import { useAccount } from 'wagmi';
 
@@ -22,7 +22,7 @@ export default function Home() {
           Compile circuit first by running in the root directory of this project:
         </div>
         <CodeBox>
-          {"npx axiom compile circuit app/axiom/average.circuit.ts"}
+          {"npx axiom circuit compile app/axiom/average.circuit.ts"}
         </CodeBox>
       </>
     )
